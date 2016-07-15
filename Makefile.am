@@ -28,7 +28,9 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 AM_CPPFLAGS = -I${abs_top_srcdir}/include
 AM_CFLAGS    = -fvisibility=hidden $(WANAL_CFLAGS)
+if MAKE_NO_PRINT_DIRECTORY
 AM_MAKEFLAGS = --no-print-directory
+endif
 
 EXTRA_DIST  =
 EXTRA_DIST += LICENSE

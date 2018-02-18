@@ -1,0 +1,19 @@
+redupe
+======
+
+This package provides several command-line tools for dealing with backup and
+longterm storage.  It uses forward error correction to make small errors or
+bitflips easy to detect and correct.  Replication is still necessary to protect
+against disaster or loss of data.
+
+redupe:  Streaming tool that will add forward error correction in-line across
+large blocks (~1MB) of the file.  The stream is not readable by the original
+application and must be recovered using reundupe.  Prototypical use includes
+reduping encrypted tarballs to ensure a single bitflip does not render them
+irrecoverable.
+
+fecsum:  Separable forward error correction.  This will create a standalone file
+that, when coupled with the original file, can correct small errors in the
+fecsum or the original.   Prototypical use includes creating a fecsum of large
+media files that need some protection against corruption but also need to be
+playable on-demand without creating a copy.
